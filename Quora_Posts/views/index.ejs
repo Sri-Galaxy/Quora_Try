@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="logo.png">
+        <link rel="stylesheet" href="style.css">
+        <title>Quora . where you find answers</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <div id="logo">
+                    <img src="brand.png" alt="Quora Logo" width="100%">
+                </div>
+
+                <button id="sign-in">Sign In</button>
+            </div>
+        </header>
+
+        <main style="color: white;">
+            <% for (let post in posts) { %>
+                <div class="main-content">
+                    <div class="user-det">
+                        <div class="profile-img">
+                            <img src="<%= post.ProfilePic %>" alt="User Profile Picture">
+                        </div>
+                        <div class="user-name">
+                            <h2>
+                                <%= post.username %>
+                            </h2>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-content">
+                        <p>
+                            <%= post.content %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
+        </main>
+    </body>
+
+</html>
