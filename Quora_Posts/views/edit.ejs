@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/logo.png">
+        <link rel="stylesheet" href="/style.css">
+        <title>Edit here</title>
+    </head>
+
+    <style>
+        body {
+            color: white;
+        }
+
+        .form-container {
+            width: 75vw;
+            padding: 3vmin;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container>h2 {
+            font-size: 4vw;
+            background-image: linear-gradient(to right, rgb(249, 49, 62), white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-container>p {
+            margin-top: 4vmin;
+            font-size: 2vw;
+            color: white;
+            font-style: italic;
+        }
+
+        form {
+            padding: 4vmin 0;
+        }
+
+        form label {
+            font-size: 2.75vmin;
+        }
+
+        .form-group {
+            padding: 1.25vmin 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #content {
+            color: white;
+            margin: 3%;
+            min-width: 100%;
+            height: 20vmin;
+            padding: 2vmin;
+            border: none;
+            outline: none;
+            background-color: #333;
+            border-radius: 10px;
+            border: 0.15px solid rgba(128, 128, 128, 0.75);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+        }
+
+        #content:focus {
+            border-bottom: 3px solid rgb(253, 67, 79);
+        }
+
+        .post {
+            margin-top: 2vh;
+            text-decoration: none;
+            color: white;
+            background-color: rgb(253, 67, 79);
+            padding: 2vmin 3vmin;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.25vw;
+        }
+
+        .post:hover {
+            cursor: pointer;
+            background-color: rgb(252, 33, 48);
+        }
+    </style>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <div id="logo">
+                    <img src="/brand.png" alt="Quora Logo" width="100%">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <h2>Edit your post</h2>
+                <p>@ <%=post.username%>
+                </p>
+                <form method="post" action="/posts/<%=post.username%>?_method=PATCH">
+                    <div class="form-group">
+                        <label for="content">Post Content</label>
+                        <textarea id="content" name="content"><%=post.content%></textarea>
+                    </div>
+                    <button class="post" type="submit">Edit</button>
+                </form>
+            </div>
+        </main>
+    </body>
+
+</html>

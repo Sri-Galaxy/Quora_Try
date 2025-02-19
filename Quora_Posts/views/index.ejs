@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="style.css">
         <title>Quora . where you find answers</title>
     </head>
@@ -21,27 +24,44 @@
         </header>
 
         <main style="color: white;">
-            <% for (let post in posts) { %>
+            <% for (let post of posts) { %>
                 <div class="main-content">
                     <div class="user-det">
                         <div class="profile-img">
-                            <img src="<%= post.ProfilePic %>" alt="User Profile Picture">
+                            <img src="<%= post.ProfilePic %>" alt="User Profile Picture" style="object-fit: cover;">
                         </div>
                         <div class="user-name">
-                            <h2>
-                                <%= post.username %>
-                            </h2>
+                            <h3>@ <%= post.username %>
+                            </h3>
+                            <p>
+                                <%= post.years %>
+                            </p>
                         </div>
                     </div>
-                    <hr>
+                    <br>
                     <div class="post-content">
                         <p>
                             <%= post.content %>
                         </p>
                     </div>
+                    <br><br>
+                    <div class="buttons">
+                        <a href="http://localhost:8088/posts/<%=post.username%>" class="detail"
+                            type="button">Details</a>
+                        <a href="http://localhost:8088/posts/<%=post.username%>/edit" class="edit"
+                            type="button"><i class="fa-solid fa-pencil"></i></a>
+                        <form method="post" action="/posts/<%=post.username%>?_method=DELETE">
+                            <button class="delete" type="submit"><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
                 </div>
                 <% } %>
         </main>
+        <footer>
+            <br><br>
+            <a class="create" href="http://localhost:8088/posts/new" type="button">Create New Post</a>
+            <br><br>
+        </footer>
     </body>
 
 </html>

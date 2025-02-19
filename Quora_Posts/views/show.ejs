@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/logo.png">
+        <title>Details of post
+        </title>
+        <style>
+            body {
+                color: white;
+            }
+
+            .container {
+                width: 75vw;
+                padding: 3vmin;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .container>h2 {
+                font-size: 6vw;
+                font-weight: 800;
+                background-image: linear-gradient(to right, rgb(249, 49, 62), white);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-style: italic;
+            }
+
+            .content {
+                margin-top: 8vh;
+                color: white;
+                min-width: 55%;
+                height: 40vmin;
+                padding: 2vmin;
+                border: none;
+                outline: none;
+                background-color: #333;
+                border-radius: 10px;
+                border: 0.15px solid rgba(128, 128, 128, 0.75);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <div id="logo">
+                    <img src="/brand.png" alt="Quora Logo" width="100%">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <% if (post) { %>
+                    <h2 class="user-name">
+                        @ <%=post.username%>
+                    </h2>
+                    <div class="content">
+                        <p>
+                            <%=post.content %>
+                        </p>
+                    </div>
+                    <% } else { %>
+                        <div class="error-message">
+                            <h3>Post Not Found</h3>
+                            <p>The requested post could not be found.</p>
+                            <a href="/posts">Back to Posts</a>
+                        </div>
+                        <% } %>
+            </div>
+        </main>
+    </body>
+
+
+</html>

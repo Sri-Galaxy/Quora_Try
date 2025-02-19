@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/logo.png">
+        <link rel="stylesheet" href="/style.css">
+        <title>Create New Post</title>
+        <style>
+            body {
+                color: white;
+            }
+
+            .form-container {
+                width: 75vw;
+                padding: 3vmin;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .form-container>h2 {
+                font-size: 4vw;
+                background-image: linear-gradient(to right, rgb(249, 49, 62), white);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            form {
+                padding: 4vmin 2vmin;
+            }
+
+            form label {
+                font-size: 2.75vmin;
+            }
+
+            .form-group {
+                padding: 2vmin 0px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .form-group input {
+                min-width: 55%;
+                color: white;
+                padding: 2.25vmin;
+                border: 0.15px solid rgba(128, 128, 128, 0.75);
+                outline: none;
+                background-color: #333;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+            }
+
+            input:focus {
+                border-bottom: 2px solid rgb(253, 67, 79);
+            }
+
+            #content {
+                color: white;
+                min-width: 55%;
+                height: 20vmin;
+                padding: 2vmin;
+                border: none;
+                outline: none;
+                background-color: #333;
+                border-radius: 10px;
+                border: 0.15px solid rgba(128, 128, 128, 0.75);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+            }
+
+            #content:focus {
+                border-bottom: 2px solid rgb(253, 67, 79);
+            }
+
+            .post {
+                margin-top: 2vh;
+                text-decoration: none;
+                color: white;
+                background-color: rgb(253, 67, 79);
+                padding: 2vmin 4vmin;
+                border: none;
+                border-radius: 8px;
+            }
+
+            .post:hover {
+                cursor: pointer;
+                background-color: rgb(252, 33, 48);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="header-content">
+                <div id="logo">
+                    <img src="/brand.png" alt="Quora Logo" width="100%">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <h2>Create a New Post</h2>
+                <form action="/posts" method="post">
+                    <div class="form-group">
+                        <label for="ProfilePic">Profile Picture URL</label>
+                        <input type="text" id="ProfilePic" name="ProfilePic" placeholder="Enter Image URL" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="years">Years Active</label>
+                        <input type="text" id="years" name="years" placeholder="Enter how many years happened" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="content">Post Content</label>
+                        <textarea id="content" name="content" placeholder="Write your content" required></textarea>
+                    </div>
+                    <button type="submit" class="post">POST</button>
+                </form>
+            </div>
+        </main>
+    </body>
+
+</html>
